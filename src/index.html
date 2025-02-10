@@ -1,17 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Management Portal</title>
   <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
-</body>
+  <div class="container">
+    <h1 class="title">Course Management Portal</h1>
 
+    <!-- Add Course Section -->
+    <div class="card">
+      <h2>Add Course</h2>
+      <div class="input-group">
+        <input type="text" id="course-name" placeholder="Enter course name">
+        <button id="add-course-btn">Add Course</button>
+      </div>
+    </div>
+
+    <!-- Course List Section -->
+    <div class="course-list">
+      <h2>Courses</h2>
+      <table id="course-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const courses = [];
+    let courseIdCounter = 1;
+
+    document.getElementById('add-course-btn').addEventListener('click', () => {
+      const courseName = document.getElementById('course-name').value.trim();
+      if (courseName) {
+        const newCourse = { id: courseIdCounter++, name: courseName };
+        courses.push(newCourse);
+        renderCourses();
+        document.getElementById('course-name').value = '';
+      }
+    });
+
+    function renderCourses() {
+      const tableBody = document.querySelector('#course-table tbody');
+      tableBody.innerHTML = '';
+      courses.forEach(course => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${course.id}</td>
+          <td>${course.name}</td>
+          <td><button onclick="deleteCourse(${course.id})">Delete</button></td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    function deleteCourse(courseId) {
+      const index = courses.findIndex(course => course.id === courseId);
+      if (index > -1) {
+        courses.splice(index, 1);
+        renderCourses();
+      }
+    }
+  </script>
+</body>
 </html>
