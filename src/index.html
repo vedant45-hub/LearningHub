@@ -1,76 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Course Management Portal</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Blog</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1 class="title">Course Management Portal</h1>
+    <header>
+        <div class="logo">
+            <h1>EduBlog</h1>
+            <p>Your source for educational content, updates, and announcements</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Add Course Section -->
-    <div class="card">
-      <h2>Add Course</h2>
-      <div class="input-group">
-        <input type="text" id="course-name" placeholder="Enter course name">
-        <button id="add-course-btn">Add Course</button>
-      </div>
-    </div>
+    <section class="hero">
+        <h2>Welcome to EduBlog</h2>
+        <p>Stay updated with the latest educational content and news.</p>
+    </section>
 
-    <!-- Course List Section -->
-    <div class="course-list">
-      <h2>Courses</h2>
-      <table id="course-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </div>
-  </div>
+    <main>
+        <section class="blog-posts">
+            <article class="post">
+                <h3>Latest Educational Trends in 2025</h3>
+                <p>Stay ahead with the latest developments in the education sector...</p>
+                <a href="#">Read more</a>
+            </article>
+            <article class="post">
+                <h3>How Technology is Shaping the Future of Learning</h3>
+                <p>Explore how digital tools are transforming classrooms...</p>
+                <a href="#">Read more</a>
+            </article>
+            <article class="post">
+                <h3>5 Tips for Online Learning Success</h3>
+                <p>Maximize your online learning experience with these practical tips...</p>
+                <a href="#">Read more</a>
+            </article>
+        </section>
 
-  <script>
-    const courses = [];
-    let courseIdCounter = 1;
+        <section class="about" id="about">
+            <h2>About EduBlog</h2>
+            <p>EduBlog provides insights into the latest trends, tips, and news in the education world.</p>
+        </section>
 
-    document.getElementById('add-course-btn').addEventListener('click', () => {
-      const courseName = document.getElementById('course-name').value.trim();
-      if (courseName) {
-        const newCourse = { id: courseIdCounter++, name: courseName };
-        courses.push(newCourse);
-        renderCourses();
-        document.getElementById('course-name').value = '';
-      }
-    });
+        <section class="contact" id="contact">
+            <h2>Contact Us</h2>
+            <p>Have any questions or suggestions? Reach out to us!</p>
+            <form action="#" method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
 
-    function renderCourses() {
-      const tableBody = document.querySelector('#course-table tbody');
-      tableBody.innerHTML = '';
-      courses.forEach(course => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${course.id}</td>
-          <td>${course.name}</td>
-          <td><button onclick="deleteCourse(${course.id})">Delete</button></td>
-        `;
-        tableBody.appendChild(row);
-      });
-    }
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
 
-    function deleteCourse(courseId) {
-      const index = courses.findIndex(course => course.id === courseId);
-      if (index > -1) {
-        courses.splice(index, 1);
-        renderCourses();
-      }
-    }
-  </script>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 EduBlog. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+
