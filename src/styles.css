@@ -1,16 +1,25 @@
-/* Reset some basic styles */
+/*
+Theme Name: Custom Blog
+Theme URI: http://example.com/custom-blog
+Author: Your Name
+Author URI: http://example.com
+Description: A simple blog theme for sharing educational content, updates, and announcements.
+Version: 1.0
+*/
+
+/* Reset styles and general layout */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body and font styles */
+/* Body styles */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
+    line-height: 1.6;
 }
 
 /* Header styles */
@@ -40,7 +49,6 @@ header nav ul {
 header nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
 }
 
 header nav ul li a:hover {
@@ -76,7 +84,6 @@ header nav ul li a:hover {
 
 .blog-posts .post h3 {
     font-size: 1.5rem;
-    margin-bottom: 10px;
 }
 
 .blog-posts .post a {
@@ -100,49 +107,12 @@ header nav ul li a:hover {
     margin-bottom: 10px;
 }
 
-/* Contact section styles */
-.contact {
-    background-color: #e8e8e8;
-    padding: 40px;
-    text-align: center;
-}
-
-.contact form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.contact form input, .contact form textarea {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.contact form button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.contact form button:hover {
-    background-color: #45a049;
-}
-
 /* Footer styles */
 footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 20px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }
+
 
